@@ -47,7 +47,7 @@ void Vec::set_y(double iy) {
  * Given a point specified by a vector, find the distance from the point specified by this vector to
  * that point. Simply use the distance formula.
  */
-double Vec::distanceTo(Vec next) {
+double Vec::distance_to(Vec next) {
   return sqrt(
     (next.x() - this->x()) * (next.x() - this->x()) +
     (next.y() - this->y()) * (next.y() - this->y())
@@ -57,7 +57,7 @@ double Vec::distanceTo(Vec next) {
 /**
  * Determine whether if the point specified by this vector is between two other points.
  */
-bool Vec::isBetween(Vec v1, Vec v2) {
+bool Vec::is_between(Vec v1, Vec v2) {
   if (v1.x() > v2.x())  {
     if(this->x() > v1.x() || this->x() < v2.x()) return false;
   } else if (v1.x() < v2.x()) {

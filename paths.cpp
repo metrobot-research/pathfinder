@@ -11,7 +11,7 @@ using namespace std;
  * Fit a cubic function given specified starting and ending coordinates and derivatives. Hermite
  * polynomials are used to create the cubic fit.
  */
-vector<Vec> hermiteCubic(Vec startPos, Vec startTan, Vec endPos, Vec endTan, int steps) {
+vector<Vec> hermiteCubic(Vec start_pos, Vec start_tan, Vec end_pos, Vec end_tan, int steps) {
   vector<Vec > out;
 
   for (int t=0; t<steps; t++) {
@@ -21,7 +21,7 @@ vector<Vec> hermiteCubic(Vec startPos, Vec startTan, Vec endPos, Vec endTan, int
     double a3 = s*s*s - 2.0*s*s + s;
     double a4 = s*s*s -  s*s;
 
-    out.push_back(a1*startPos + a2*endPos + a3*startTan + a4*endTan);
+    out.push_back(a1*start_pos + a2*end_pos + a3*start_tan + a4*end_tan);
   }
 
   return out;

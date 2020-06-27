@@ -15,8 +15,8 @@ class Vec {
     double magnitude();
     string to_string();
     Vec unit();
-    double distanceTo(Vec next);
-    bool isBetween(Vec v1, Vec v2);
+    double distance_to(Vec next);
+    bool is_between(Vec v1, Vec v2);
   private:
     double x_coord;
     double y_coord;
