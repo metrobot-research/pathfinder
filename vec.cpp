@@ -1,45 +1,45 @@
-#include "vector.hpp"
+#include "vec.hpp"
 #include <ostream>
 #include <cmath>
 #include <string>
 using namespace std;
 
-Vector::Vector(double ix, double iy) {
+Vec::Vec(double ix, double iy) {
   this->x_coord = ix;
   this->y_coord = iy;
 }
 
-Vector::Vector() {
+Vec::Vec() {
   this->x_coord = 0;
   this->y_coord = 0;
 }
 
-double Vector::x() {
+double Vec::x() {
   return this->x_coord;
 }
     
-double Vector::y() {
+double Vec::y() {
   return this->y_coord;
 }
 
-double Vector::magnitude() {
+double Vec::magnitude() {
   return sqrt(this->x_coord*this->x_coord + this->y_coord*this->y_coord);
 }
 
-Vector Vector::unit() {
+Vec Vec::unit() {
   double mag = this->magnitude();
-  return Vector(this->x_coord/mag, this->y_coord/mag);
+  return Vec(this->x_coord/mag, this->y_coord/mag);
 }
 
-string Vector::to_string() {
+string Vec::to_string() {
   return std::to_string(this->x_coord) + "," + std::to_string(this->y_coord);
 }
 
-void Vector::set_x(double ix) {
+void Vec::set_x(double ix) {
   this->x_coord = ix;
 }
 
-void Vector::set_y(double iy) {
+void Vec::set_y(double iy) {
   this->y_coord = iy;
 }
 
@@ -47,7 +47,7 @@ void Vector::set_y(double iy) {
  * Given a point specified by a vector, find the distance from the point specified by this vector to
  * that point. Simply use the distance formula.
  */
-double Vector::distanceTo(Vector next) {
+double Vec::distanceTo(Vec next) {
   return sqrt(
     (next.x() - this->x()) * (next.x() - this->x()) +
     (next.y() - this->y()) * (next.y() - this->y())
@@ -57,7 +57,7 @@ double Vector::distanceTo(Vector next) {
 /**
  * Determine whether if the point specified by this vector is between two other points.
  */
-bool Vector::isBetween(Vector v1, Vector v2) {
+bool Vec::isBetween(Vec v1, Vec v2) {
   if (v1.x() > v2.x())  {
     if(this->x() > v1.x() || this->x() < v2.x()) return false;
   } else if (v1.x() < v2.x()) {
@@ -77,7 +77,7 @@ bool Vector::isBetween(Vector v1, Vector v2) {
   return true;
 }
 
-ostream& operator<<(ostream& os, Vector v) {
+ostream& operator<<(ostream& os, Vec v) {
   os << v.to_string();
   return os;
 }
@@ -85,33 +85,33 @@ ostream& operator<<(ostream& os, Vector v) {
 /**
  * Performs scalar multiplication on this vector.
  */
-Vector operator*(double mult, Vector v) {
-  Vector out = Vector(v.x()*mult, v.y()*mult);
+Vec operator*(double mult, Vec v) {
+  Vec out = Vec(v.x()*mult, v.y()*mult);
   return out;
 }
 
 /**
  * Performs scalar multiplication on this vector.
  */
-Vector operator*(Vector v, double mult) {
-  Vector out = Vector(v.x()*mult, v.y()*mult);
+Vec operator*(Vec v, double mult) {
+  Vec out = Vec(v.x()*mult, v.y()*mult);
   return out;
 }
 
-Vector operator+(Vector v1, Vector v2) {
-  Vector out = Vector(v1.x()+v2.x(), v1.y()+v2.y());
+Vec operator+(Vec v1, Vec v2) {
+  Vec out = Vec(v1.x()+v2.x(), v1.y()+v2.y());
   return out;
 }
 
-Vector operator-(Vector v1, Vector v2) {
-  Vector out = Vector(v1.x()-v2.x(), v1.y()-v2.y());
+Vec operator-(Vec v1, Vec v2) {
+  Vec out = Vec(v1.x()-v2.x(), v1.y()-v2.y());
   return out;
 }
 
-bool operator==(Vector v1, Vector v2) {
+bool operator==(Vec v1, Vec v2) {
   return v1.y()==v2.y() && v1.y()==v2.y();
 }
 
-bool operator !=(Vector v1, Vector v2) {
+bool operator !=(Vec v1, Vec v2) {
   return !(v1 == v2);
 }
