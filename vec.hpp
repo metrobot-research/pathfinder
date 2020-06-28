@@ -30,4 +30,4 @@ Vec operator-(Vec v1, Vec v2);
 bool operator==(Vec v1, Vec v2);
 bool operator !=(Vec v1, Vec v2);
 
-#endif // _vecto_h_r
+#endif // _vector_h_
