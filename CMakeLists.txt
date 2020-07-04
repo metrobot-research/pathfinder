@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.10)
 
 project(pathfinder)
 
-# C++ 11
-set (CMAKE_CXX_STANDARD 11)
+# C++ 17
+set (CMAKE_CXX_STANDARD 17)
 
 # Choose output directory
 set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
