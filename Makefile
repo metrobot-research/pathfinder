@@ -177,6 +177,33 @@ src/pathfinder.cpp.s:
 	$(MAKE) -f CMakeFiles/pathfinder.dir/build.make CMakeFiles/pathfinder.dir/src/pathfinder.cpp.s
 .PHONY : src/pathfinder.cpp.s
 
+src/simulate.o: src/simulate.cpp.o
+
+.PHONY : src/simulate.o
+
+# target to build an object file
+src/simulate.cpp.o:
+	$(MAKE) -f CMakeFiles/pathfinder.dir/build.make CMakeFiles/pathfinder.dir/src/simulate.cpp.o
+.PHONY : src/simulate.cpp.o
+
+src/simulate.i: src/simulate.cpp.i
+
+.PHONY : src/simulate.i
+
+# target to preprocess a source file
+src/simulate.cpp.i:
+	$(MAKE) -f CMakeFiles/pathfinder.dir/build.make CMakeFiles/pathfinder.dir/src/simulate.cpp.i
+.PHONY : src/simulate.cpp.i
+
+src/simulate.s: src/simulate.cpp.s
+
+.PHONY : src/simulate.s
+
+# target to generate assembly for a file
+src/simulate.cpp.s:
+	$(MAKE) -f CMakeFiles/pathfinder.dir/build.make CMakeFiles/pathfinder.dir/src/simulate.cpp.s
+.PHONY : src/simulate.cpp.s
+
 src/util.o: src/util.cpp.o
 
 .PHONY : src/util.o
@@ -246,6 +273,9 @@ help:
 	@echo "... src/pathfinder.o"
 	@echo "... src/pathfinder.i"
 	@echo "... src/pathfinder.s"
+	@echo "... src/simulate.o"
+	@echo "... src/simulate.i"
+	@echo "... src/simulate.s"
 	@echo "... src/util.o"
 	@echo "... src/util.i"
 	@echo "... src/util.s"

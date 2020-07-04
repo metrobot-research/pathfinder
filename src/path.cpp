@@ -6,6 +6,36 @@
 
 const double Path::LOOKAHEAD_DISTANCE = 5;
 
+/**
+ * Fit a cubic function given specified starting and ending coordinates and derivatives. Hermite
+ * polynomials are used to create the cubic fit.
+ */
+std::vector<Vec> hermite_cubic(Vec start_pos, Vec start_heading, Vec end_pos, Vec end_heading, int steps) {
+    std::vector<Vec > out;
+
+  for (int t=0; t<steps; t++) {
+    double s = (double)t / (double)steps;
+    double a1 = 2.0*s*s*s - 3.0*s*s + 1.0;
+    double a2 = -2.0*s*s*s + 3.0*s*s;
+    double a3 = s*s*s - 2.0*s*s + s;
+    double a4 = s*s*s -  s*s;
+
+    out.push_back(a1*start_pos + a2*end_pos + a3*start_heading + a4*end_heading);
+  }
+
+  return out;
+}
+
+/**
+ * Given starting and ending positions, and derivatives, generate a path between them.
+ *
+ * This is a function that just delegates to one of the point generation functions such as
+ * hermite_cubic.
+ */
+Path generate_path(Vec start_pos, Vec start_heading, Vec end_pos, Vec end_heading, int steps) {
+    return Path(hermite_cubic(start_pos, start_heading, end_pos, end_heading, steps));
+}
+
 Path::Path(std::vector<Vec> path) {
     this->path = path;
 }
@@ -38,7 +68,6 @@ std::pair<double, Vec> Path::curvature(Vec pos) {
   Vec local_goal = goal - pos;
 
   double c = (2 * local_goal.x()) / (dist*dist);
-  std::cout << centers_from_points_and_radius(pos, goal, 1/c).second;
   return std::make_pair(c, centers_from_points_and_radius(pos, goal, 1/c).first);
 }
 

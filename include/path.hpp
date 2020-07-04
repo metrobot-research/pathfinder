@@ -4,6 +4,7 @@
 #include "vec.hpp"
 #include <vector>
 
+
 /**
  * A Path encapsulates the data associated with following a specified set of points.
  */
@@ -18,6 +19,8 @@ class Path {
     static const double LOOKAHEAD_DISTANCE;
     std::pair<Vec, int> closest_point_on_path(Vec pos);
 };
+
+Path generate_path(Vec start_pos, Vec start_heading, Vec end_pos, Vec end_heading, int steps);
 
 std::ostream& operator<<(std::ostream& os, Path p);
 
