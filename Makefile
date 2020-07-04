@@ -123,6 +123,19 @@ pathfinder/fast:
 	$(MAKE) -f CMakeFiles/pathfinder.dir/build.make CMakeFiles/pathfinder.dir/build
 .PHONY : pathfinder/fast
 
+#=============================================================================
+# Target rules for targets named lint
+
+# Build rule for target.
+lint: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 lint
+.PHONY : lint
+
+# fast build rule for target.
+lint/fast:
+	$(MAKE) -f CMakeFiles/lint.dir/build.make CMakeFiles/lint.dir/build
+.PHONY : lint/fast
+
 src/path.o: src/path.cpp.o
 
 .PHONY : src/path.o
@@ -267,6 +280,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... pathfinder"
+	@echo "... lint"
 	@echo "... src/path.o"
 	@echo "... src/path.i"
 	@echo "... src/path.s"
