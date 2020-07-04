@@ -1,8 +1,10 @@
 #include "path.hpp"
-#include "util.hpp"
+
 #include <cmath>
 #include <iostream>
 #include <vector>
+
+#include "util.hpp"
 
 const double Path::LOOKAHEAD_DISTANCE = 5;
 
@@ -10,8 +12,8 @@ const double Path::LOOKAHEAD_DISTANCE = 5;
  * Fit a cubic function given specified starting and ending coordinates and
  * derivatives. Hermite polynomials are used to create the cubic fit.
  */
-std::vector<Vec> hermite_cubic(Vec start_pos, Vec start_heading, Vec end_pos,
-                               Vec end_heading, int steps) {
+std::vector<Vec> hermite_cubic(Vec start_pos, Vec start_heading, Vec end_pos, Vec end_heading,
+                               int steps) {
   std::vector<Vec> out;
 
   for (int t = 0; t < steps; t++) {
@@ -21,8 +23,7 @@ std::vector<Vec> hermite_cubic(Vec start_pos, Vec start_heading, Vec end_pos,
     double a3 = s * s * s - 2.0 * s * s + s;
     double a4 = s * s * s - s * s;
 
-    out.push_back(a1 * start_pos + a2 * end_pos + a3 * start_heading +
-                  a4 * end_heading);
+    out.push_back(a1 * start_pos + a2 * end_pos + a3 * start_heading + a4 * end_heading);
   }
 
   return out;
@@ -35,13 +36,13 @@ std::vector<Vec> hermite_cubic(Vec start_pos, Vec start_heading, Vec end_pos,
  * This is a function that just delegates to one of the point generation
  * functions such as hermite_cubic.
  */
-Path generate_path(Vec start_pos, Vec start_heading, Vec end_pos,
-                   Vec end_heading, int steps) {
-  return Path(
-      hermite_cubic(start_pos, start_heading, end_pos, end_heading, steps));
+Path generate_path(Vec start_pos, Vec start_heading, Vec end_pos, Vec end_heading, int steps) {
+  return Path(hermite_cubic(start_pos, start_heading, end_pos, end_heading, steps));
 }
 
-Path::Path(std::vector<Vec> path) { this->path = path; }
+Path::Path(std::vector<Vec> path) {
+  this->path = path;
+}
 
 string Path::to_string() {
   string out;
@@ -70,8 +71,7 @@ std::pair<double, Vec> Path::curvature(Vec pos) {
   Vec local_goal = goal - pos;
 
   double c = (2 * local_goal.x()) / (dist * dist);
-  return std::make_pair(c,
-                        centers_from_points_and_radius(pos, goal, 1 / c).first);
+  return std::make_pair(c, centers_from_points_and_radius(pos, goal, 1 / c).first);
 }
 
 /**
@@ -97,8 +97,7 @@ Vec Path::next_lookahead(Vec pos) {
     return start;
   }
 
-  double min_lookahead_diff =
-      abs(lookahead - start.distance_to(this->path.at(start_index + 1)));
+  double min_lookahead_diff = abs(lookahead - start.distance_to(this->path.at(start_index + 1)));
   int min_index = start_index + 1;
 
   // Find the point on the path whose distance from start is closest to the

@@ -1,6 +1,8 @@
 #include "util.hpp"
-#include "vec.hpp"
+
 #include <cmath>
+
+#include "vec.hpp"
 
 /**
  * Return the two possibility for centers of a circle determined by two  points
@@ -9,8 +11,7 @@
  * Derivation of the formula:
  * https://math.stackexchange.com/questions/441450/how-to-find-arc-center-when-given-two-points-and-a-radius/441517#441517
  */
-std::pair<Vec, Vec> centers_from_points_and_radius(Vec p1, Vec p2,
-                                                   double radius) {
+std::pair<Vec, Vec> centers_from_points_and_radius(Vec p1, Vec p2, double radius) {
   double x_mid = (p1.x() + p2.x()) / 2;
   double y_mid = (p1.y() + p2.y()) / 2;
 

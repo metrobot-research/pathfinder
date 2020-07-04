@@ -1,8 +1,9 @@
-#include "path.hpp"
-#include "vec.hpp"
 #include <cmath>
 #include <iostream>
 #include <vector>
+
+#include "path.hpp"
+#include "vec.hpp"
 
 /**
  * Simulate simulates the actual location of a vehicle as it attempts to follow
@@ -10,8 +11,7 @@
  * vehicle is simulated to be moving at the given speed (where speed is the
  * magnitude of movement it makes per time step).
  */
-std::vector<Vec> simulate(Path path, Vec start_pos, Vec start_heading,
-                          double speed) {
+std::vector<Vec> simulate(Path path, Vec start_pos, Vec start_heading, double speed) {
   std::vector<Vec> locs;
   Vec pos = start_pos;
   Vec heading = start_heading;
@@ -25,8 +25,7 @@ std::vector<Vec> simulate(Path path, Vec start_pos, Vec start_heading,
     double radius = 1 / curvature;
 
     // Debug
-    cout << " (x-" << center.x() << ")^2 + (y-" << center.y()
-         << ")^2 = " << radius * radius << " ";
+    cout << " (x-" << center.x() << ")^2 + (y-" << center.y() << ")^2 = " << radius * radius << " ";
 
     // The change in angle of the vehicle with respect to the center of the
     // circle (s = r * theta).

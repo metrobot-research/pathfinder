@@ -5,7 +5,7 @@
 using namespace std;
 
 class Vec {
-public:
+ public:
   Vec();
   Vec(double ix, double iy);
   double x();
@@ -18,7 +18,7 @@ public:
   double distance_to(Vec next);
   bool is_between(Vec v1, Vec v2);
 
-private:
+ private:
   double x_coord;
   double y_coord;
 };
@@ -31,4 +31,4 @@ Vec operator-(Vec v1, Vec v2);
 bool operator==(Vec v1, Vec v2);
 bool operator!=(Vec v1, Vec v2);
 
-#endif // _vector_h_
+#endif  // _vector_h_
