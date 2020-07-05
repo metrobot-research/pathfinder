@@ -136,6 +136,33 @@ format/fast:
 	$(MAKE) -f CMakeFiles/format.dir/build.make CMakeFiles/format.dir/build
 .PHONY : format/fast
 
+src/circle.o: src/circle.cpp.o
+
+.PHONY : src/circle.o
+
+# target to build an object file
+src/circle.cpp.o:
+	$(MAKE) -f CMakeFiles/pathfinder.dir/build.make CMakeFiles/pathfinder.dir/src/circle.cpp.o
+.PHONY : src/circle.cpp.o
+
+src/circle.i: src/circle.cpp.i
+
+.PHONY : src/circle.i
+
+# target to preprocess a source file
+src/circle.cpp.i:
+	$(MAKE) -f CMakeFiles/pathfinder.dir/build.make CMakeFiles/pathfinder.dir/src/circle.cpp.i
+.PHONY : src/circle.cpp.i
+
+src/circle.s: src/circle.cpp.s
+
+.PHONY : src/circle.s
+
+# target to generate assembly for a file
+src/circle.cpp.s:
+	$(MAKE) -f CMakeFiles/pathfinder.dir/build.make CMakeFiles/pathfinder.dir/src/circle.cpp.s
+.PHONY : src/circle.cpp.s
+
 src/path.o: src/path.cpp.o
 
 .PHONY : src/path.o
@@ -281,6 +308,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... pathfinder"
 	@echo "... format"
+	@echo "... src/circle.o"
+	@echo "... src/circle.i"
+	@echo "... src/circle.s"
 	@echo "... src/path.o"
 	@echo "... src/path.i"
 	@echo "... src/path.s"

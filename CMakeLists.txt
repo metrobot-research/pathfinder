@@ -13,4 +13,4 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 # Add a format target
 add_custom_target(format COMMAND clang-format -style=file -i src/*.cpp include/*.hpp)
 
-add_executable(pathfinder src/pathfinder.cpp src/vec.cpp src/path.cpp src/util.cpp src/simulate.cpp)
+add_executable(pathfinder src/pathfinder.cpp src/vec.cpp src/path.cpp src/util.cpp src/simulate.cpp src/circle.cpp)

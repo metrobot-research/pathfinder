@@ -2,8 +2,6 @@
 #define _vector_h_
 #include <ostream>
 
-using namespace std;
-
 class Vec {
  public:
   Vec();
@@ -13,10 +11,10 @@ class Vec {
   void set_x(double ix);
   void set_y(double iy);
   double magnitude();
-  string to_string();
+  std::string to_string();
   Vec unit();
   double distance_to(Vec next);
-  bool is_between(Vec v1, Vec v2);
+  double dot(Vec v);
 
  private:
   double x_coord;

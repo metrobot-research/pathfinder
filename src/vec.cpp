@@ -3,7 +3,6 @@
 #include <cmath>
 #include <ostream>
 #include <string>
-using namespace std;
 
 Vec::Vec(double ix, double iy) {
   this->x_coord = ix;
@@ -32,7 +31,7 @@ Vec Vec::unit() {
   return Vec(this->x_coord / mag, this->y_coord / mag);
 }
 
-string Vec::to_string() {
+std::string Vec::to_string() {
   return std::to_string(this->x_coord) + "," + std::to_string(this->y_coord);
 }
 
@@ -54,30 +53,13 @@ double Vec::distance_to(Vec next) {
 }
 
 /**
- * Determine whether if the point specified by this vector is between two other
- * points.
+ * Takes the dot product between two vectors.
  */
-bool Vec::is_between(Vec v1, Vec v2) {
-  if (v1.x() > v2.x()) {
-    if (this->x() > v1.x() || this->x() < v2.x()) return false;
-  } else if (v1.x() < v2.x()) {
-    if (this->x() < v1.x() || this->x() > v2.x()) return false;
-  } else {
-    if (this->x() != v1.x()) return false;
-  }
-
-  if (v1.y() > v2.y()) {
-    if (this->y() > v1.y() || this->y() < v2.y()) return false;
-  } else if (v1.y() < v2.y()) {
-    if (this->y() < v1.y() || this->y() > v2.y()) return false;
-  } else {
-    if (this->y() != v1.y()) return false;
-  }
-
-  return true;
+double Vec::dot(Vec v) {
+  return this->x() * v.x() + this->y() * v.y();
 }
 
-ostream &operator<<(ostream &os, Vec v) {
+std::ostream &operator<<(std::ostream &os, Vec v) {
   os << v.to_string();
   return os;
 }
