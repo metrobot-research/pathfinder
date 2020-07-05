@@ -1,10 +1,11 @@
+#include "path.hpp"
+
 #include <cmath>
 #include <iostream>
 #include <vector>
 
-#include "util.hpp"
-#include "path.hpp"
 #include "circle.hpp"
+#include "util.hpp"
 
 const double Path::LOOKAHEAD_DISTANCE = 5;
 
@@ -78,7 +79,7 @@ std::pair<Circle, Vec> Path::circle_to_follow(Vec pos, Vec heading) {
   Vec local_goal = goal - pos;
 
   double k = (2 * local_goal.x()) / (dist * dist);
-  double radius = 1/k;
+  double radius = 1 / k;
   std::pair<Vec, Vec> centers = centers_from_points_and_radius(pos, goal, radius);
 
   // Choose the best tangent vector for each circle
@@ -102,7 +103,6 @@ std::pair<Circle, Vec> Path::circle_to_follow(Vec pos, Vec heading) {
   } else {
     heading_2 = heading_2_2;
   }
-
 
   // Have the two best tangent directions on the circles, now choose the best circle to follow.
   Circle circle;

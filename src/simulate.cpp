@@ -2,9 +2,9 @@
 #include <iostream>
 #include <vector>
 
+#include "circle.hpp"
 #include "path.hpp"
 #include "vec.hpp"
-#include "circle.hpp"
 
 /**
  * Simulate simulates the actual location of a vehicle as it attempts to follow
@@ -27,7 +27,8 @@ std::vector<Vec> simulate(Path path, Vec start_pos, Vec start_heading, double sp
     double radius = circle.radius();
 
     // Debug
-    std::cout << "---\n(x-" << center.x() << ")^2 + (y-" << center.y() << ")^2 = " << radius * radius << "\n";
+    std::cout << "---\n(x-" << center.x() << ")^2 + (y-" << center.y()
+              << ")^2 = " << radius * radius << "\n";
     std::cout << "path tangent: " << path_tangent << "\n";
     std::cout << "unit tangent: " << circle.unit_tangent_at(pos) << "\n";
     std::cout << "unit tangent dot: " << circle.unit_tangent_at(pos).dot(path_tangent) << "\n";

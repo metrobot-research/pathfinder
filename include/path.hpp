@@ -3,8 +3,8 @@
 #include <ostream>
 #include <vector>
 
-#include "vec.hpp"
 #include "circle.hpp"
+#include "vec.hpp"
 
 /**
  * A Path encapsulates the data associated with following a specified set of

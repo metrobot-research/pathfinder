@@ -1,5 +1,6 @@
-#include "vec.hpp"
 #include "circle.hpp"
+
+#include "vec.hpp"
 
 Circle::Circle() {
   this->c = Vec();
