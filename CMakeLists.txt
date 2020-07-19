@@ -8,7 +8,7 @@ set (CMAKE_CXX_STANDARD 17)
 # Choose output directory
 set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 
-include_directories(${PROJECT_SOURCE_DIR}/include)
+include_directories(${PROJECT_SOURCE_DIR}/include ${PROJECT_SOURCE_DIR}/src/include)
 
 # Add a format target
 add_custom_target(format COMMAND clang-format -style=file -i src/*.cpp include/*.hpp)

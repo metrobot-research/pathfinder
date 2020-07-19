@@ -49,3 +49,6 @@ _deps
 .vim/
 compile_commands.json
 .clangd/
+
+# OS-specific
+.DS_Store
