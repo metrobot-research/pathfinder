@@ -45,7 +45,7 @@ std::vector<Vec> simulate(Path path, Vec start_pos, Vec start_heading, double sp
     std::cout << "radius: " << circle.radius() << "\n";
     std::cout << "pos: " << pos << "\n";
     std::cout << "angle change: " << angle_change << "\n";
-    std::cout << "cos: " <<  cos(angle_change) << " sin: " << sin(angle_change) << "\n";
+    std::cout << "cos: " << cos(angle_change) << " sin: " << sin(angle_change) << "\n";
 
     // Treat the center of the circle as the origin, and find the new
     // coordinates with respect to this center.

@@ -145,7 +145,8 @@ std::pair<Vec, Vec> Path::next_lookahead(Vec pos) {
 
   Vec next = this->path.at(start_index + 1);
 
-  Vec path_tangent = std::copysign(1, next.x() - start.x()) * Vec(1, (next.y() - start.y()) / (next.x() - start.x())).unit();
+  Vec path_tangent = std::copysign(1, next.x() - start.x()) *
+                     Vec(1, (next.y() - start.y()) / (next.x() - start.x())).unit();
 
   double min_lookahead_diff = abs(lookahead - start.distance_to(this->path.at(start_index + 1)));
   int min_index = start_index + 1;
