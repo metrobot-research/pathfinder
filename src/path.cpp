@@ -78,7 +78,7 @@ std::pair<Circle, Vec> Path::circle_to_follow(Vec pos, Vec heading) {
   // Convert goal to local coordinates (pos is the origin).
   Vec local_goal = goal - pos;
 
-  double k = (2 * local_goal.x()) / (dist * dist);
+  double k = (2 * std::abs(local_goal.x())) / (dist * dist);
   double radius = 1 / k;
   std::pair<Vec, Vec> centers = centers_from_points_and_radius(pos, goal, radius);
 
@@ -104,17 +104,19 @@ std::pair<Circle, Vec> Path::circle_to_follow(Vec pos, Vec heading) {
     heading_2 = heading_2_2;
   }
 
+  Vec circle_heading;
+
   // Have the two best tangent directions on the circles, now choose the best circle to follow.
   Circle circle;
   if (heading.dot(heading_1) > heading.dot(heading_2)) {
-    heading = heading_1;
+    circle_heading = heading_1;
     circle = circle_1;
   } else {
-    heading = heading_2;
+    circle_heading = heading_2;
     circle = circle_2;
   }
 
-  return std::make_pair(circle, heading);
+  return std::make_pair(circle, circle_heading);
 }
 
 /**
@@ -142,7 +144,9 @@ std::pair<Vec, Vec> Path::next_lookahead(Vec pos) {
   }
 
   Vec next = this->path.at(start_index + 1);
-  Vec path_tangent = Vec(1, (next.y() - start.y()) / (next.x() - start.x())).unit();
+
+  Vec path_tangent = std::copysign(1, next.x() - start.x()) * Vec(1, (next.y() - start.y()) / (next.x() - start.x())).unit();
+
   double min_lookahead_diff = abs(lookahead - start.distance_to(this->path.at(start_index + 1)));
   int min_index = start_index + 1;
 
