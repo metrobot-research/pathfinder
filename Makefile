@@ -298,6 +298,33 @@ src/vec.cpp.s:
 	$(MAKE) -f CMakeFiles/pathfinder.dir/build.make CMakeFiles/pathfinder.dir/src/vec.cpp.s
 .PHONY : src/vec.cpp.s
 
+src/wheeled_follower.o: src/wheeled_follower.cpp.o
+
+.PHONY : src/wheeled_follower.o
+
+# target to build an object file
+src/wheeled_follower.cpp.o:
+	$(MAKE) -f CMakeFiles/pathfinder.dir/build.make CMakeFiles/pathfinder.dir/src/wheeled_follower.cpp.o
+.PHONY : src/wheeled_follower.cpp.o
+
+src/wheeled_follower.i: src/wheeled_follower.cpp.i
+
+.PHONY : src/wheeled_follower.i
+
+# target to preprocess a source file
+src/wheeled_follower.cpp.i:
+	$(MAKE) -f CMakeFiles/pathfinder.dir/build.make CMakeFiles/pathfinder.dir/src/wheeled_follower.cpp.i
+.PHONY : src/wheeled_follower.cpp.i
+
+src/wheeled_follower.s: src/wheeled_follower.cpp.s
+
+.PHONY : src/wheeled_follower.s
+
+# target to generate assembly for a file
+src/wheeled_follower.cpp.s:
+	$(MAKE) -f CMakeFiles/pathfinder.dir/build.make CMakeFiles/pathfinder.dir/src/wheeled_follower.cpp.s
+.PHONY : src/wheeled_follower.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -326,6 +353,9 @@ help:
 	@echo "... src/vec.o"
 	@echo "... src/vec.i"
 	@echo "... src/vec.s"
+	@echo "... src/wheeled_follower.o"
+	@echo "... src/wheeled_follower.i"
+	@echo "... src/wheeled_follower.s"
 .PHONY : help
 
 
